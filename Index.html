@@ -1,0 +1,1378 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>Inkpad Notepad</title>
+	<link rel="shortcut icon" href="/static/design/favicon.ico" />
+	<link type="text/css" href="/static/css/reset-fonts-grids.css" rel="stylesheet" />
+	<link type="text/css" href="/static/css/jquery-ui-1.8.12.custom.css" rel="stylesheet" />
+	<link type="text/css" href="/static/css/facebox.css" rel="stylesheet" />
+	<link type="text/css" href="/static/css/base_editor.css" rel="stylesheet" />
+	<script src="https://accounts.google.com/gsi/client" async defer></script>
+	<script type="text/javascript" src="/static/js/login.js"></script>
+	<script type="text/javascript" src="/static/js/jquery-1.5.1.min.js"></script>
+	<script type="text/javascript" src="/static/js/jquery-ui-1.8.12.custom.min.js"></script>
+	<script type="text/javascript" src="/static/js/cufon-yui.js"></script>
+	<script type="text/javascript" src="/static/js/facebox.js"></script>
+	<script type="text/javascript"
+		src="/static/js/Swansea_400-Swansea_700-Swansea_italic_400-Swansea_italic_700.font.js"></script>
+	
+<link type="text/css" href="/static/css/editor.css" rel="stylesheet" />
+<link type="text/css" href="/static/css/buttons.css" rel="stylesheet" />
+<script type="text/javascript" src="/static/js/jquery.hotkeys.js"></script>
+<script type="text/javascript" src="/static/js/utils.js"></script>
+<script type="text/javascript" src="/static/js/editor.js"></script>
+<script type="text/javascript">
+	setUserEmail('Mr.JayGil@gmail.com');
+	setShowAgreeTerms(false);
+	
+	setUserIsPremium(false);
+	
+
+	
+</script>
+
+	<script type="text/javascript">
+		var _gaq = _gaq || [];
+		_gaq.push(['_setAccount', 'UA-3594498-11']);
+		_gaq.push(['_trackPageview']);
+
+		(function () {
+			var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+			ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+			var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+		})();
+	</script>
+</head>
+
+<body>
+	<div id="top-space">
+		<div id="top-menu">
+			<div id="mnu-1">
+				<ul>
+					<li><a href="/notes" id="inkpad-notepad">Inkpad Notepad</a> - Mr.JayGil@gmail.com</li>
+				</ul>
+			</div>
+			<div id="mnu-2">
+				<ul>
+					<li><a href="/go_premium" id="go-premium">Go premium</a></li>
+					<li>|</li>
+					<li><a href="/settings">Settings</a></li>
+					<li>|</li>
+					<li><a href="#" id="sign-out" onclick="signOut();">Sign out</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<a href="/pad">
+		<div id="preview-promo">
+			<div id="preview-promo-spacer"></div>
+			<div id="preview-promo-leading">
+				<img src="/static/design/icon_foreground.png" />
+				<svg viewBox="0 0 24 24">
+					<path fill="currentColor"
+						d="M20,4C21.11,4 22,4.89 22,6V18C22,19.11 21.11,20 20,20H4C2.89,20 2,19.11 2,18V6C2,4.89 2.89,4 4,4H20M8.5,15V9H7.25V12.5L4.75,9H3.5V15H4.75V11.5L7.3,15H8.5M13.5,10.26V9H9.5V15H13.5V13.75H11V12.64H13.5V11.38H11V10.26H13.5M20.5,14V9H19.25V13.5H18.13V10H16.88V13.5H15.75V9H14.5V14A1,1 0 0,0 15.5,15H19.5A1,1 0 0,0 20.5,14Z" />
+				</svg>
+			</div>
+			<div id="preview-promo-body">
+				<div id="preview-promo-title">
+					Try the new Inkpad Notepad
+				</div>
+				<div id="preview-promo-subtitle">
+					We've added features to make notes more useful!
+				</div>
+			</div>
+			<div id="preview-promo-spacer"></div>
+			<div id="preview-promo-trailing">
+				<svg viewBox="0 0 24 24">
+					<path fill="currentColor"
+						d="M12,2C17.53,2 22,6.47 22,12C22,17.53 17.53,22 12,22C6.47,22 2,17.53 2,12C2,6.47 6.47,2 12,2M15.59,7L12,10.59L8.41,7L7,8.41L10.59,12L7,15.59L8.41,17L12,13.41L15.59,17L17,15.59L13.41,12L17,8.41L15.59,7Z" />
+				</svg>
+			</div>
+			<script type="text/javascript">
+				var ca = document.cookie.split(';');
+				var promoDismissed = false;
+				for (var i = 0; i < ca.length; i++) {
+					var c = ca[i];
+					while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+					if (c.indexOf("preview-promo-dimissed") == 0) {
+						promoDismissed = true;
+					}
+				}
+				if (!promoDismissed) {
+					document.getElementById("preview-promo").style.display = "flex";
+				}
+
+
+				document.getElementById("preview-promo-trailing").addEventListener('click', function (event) {
+					event.preventDefault();
+					document.cookie = "preview-promo-dimissed=; expires=Sun, 1 Jan 2023 00:00:00 UTC; path=/";
+					document.getElementById("preview-promo").style.display = "none";
+				});
+			</script>
+		</div>
+	</a>
+	<div id="doc">
+		
+<div class="yui3-g">
+	<div class="yui3-u" id="nav">
+		<div id="menu">
+			<div id="menu-top"></div>
+			<div id="menu-body">
+				<div class="header">
+					<div id="actions">
+						<a href="/settings" title="Settings" id="preff"></a>
+						<a href="#" title="New note" onclick="newNote()" id="new-note"></a>
+					</div>
+				</div>
+				<div id="search-box-cont">
+					<div id="search-box">
+						<a href="#"></a>
+						<input autocomplete="off" type="text" name="q" id="q" onkeyup="search()" class="defaultText"
+							title="Search your notes" />
+					</div>
+				</div>
+				<div id="preview-link">
+					<ul>
+						<li>
+							<a href="/pad"><img src="/static/design/icon_foreground.png" /><span>Try the new Inkpad
+									Notepad</span></a>
+						</li>
+					</ul>
+				</div>
+				<div id="notes-cont">
+					
+					<div id="upgrade-banner-wrapper"
+						style="background: #448AFF; margin-right: 30px; padding: 18px 0px 18px 12px">
+						<a href="/pad/#/premium" id="upgrade-banner" target="_blank"
+							style="color: #e7fdff; font-size: 12px; line-height: 1.5em">
+							<div>
+								<div style="font-size: 18px; margin-bottom: 8px">Upgrade to premium</div>
+								<div>✓ No ads</div>
+								<div>✓ Unlimited daily syncing</div>
+								<div>✓ View & restore note history</div>
+								<div>✓ And more!</div>
+								<div style="text-align: right; margin-right: 12px; margin-top: 7px">
+									<form action="/pad/#/premium" target="_blank">
+										<button type="submit" style="cursor: pointer">Learn more</button>
+									</form>
+								</div>
+							</div>
+						</a>
+					</div>
+					
+					<ul id="notes">
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC00JHIgAoM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC00JHIgAoM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC00JHIgAoM">Index.html</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC00JHIgAoM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC00JHIgAoM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC00JHIgAoM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC00JHIgAoM"
+								value="Index.html" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC00JHIgAoM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC00JHIgAoM"
+								class="search-element">&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;en&#34;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;title&gt;JGInsurance Links&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            background: #111;
+            color: #f5c14a;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 40px;
+        }
+        .download-link {
+            display: inline-block;
+            background: #f5c14a;
+            color: #222;
+            padding: 12px 24px;
+            margin: 16px 8px;
+            border-radius: 7px;
+            font-size: 1.1em;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 2px 8px #0003;
+            transition: background 0.2s, color 0.2s;
+        }
+        .download-link:hover {
+            background: #fff;
+            color: #b48836;
+        }
+        .banner-img {
+            max-width: 330px;
+            width: 98%;
+            margin-bottom: 24px;
+            border-radius: 6px;
+            border: 2px solid #f5c14a55;
+            box-shadow: 0 8px 36px #0008;
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;img src=&#34;1000019630.jpg&#34; alt=&#34;JGInsurance Travelers Rest, SC Banner&#34; class=&#34;banner-img&#34;&gt;
+
+    &lt;div&gt;
+        &lt;a href=&#34;JGInsurance_Banner_Optimized-6.html&#34; class=&#34;download-link&#34; download&gt;
+            Download JGInsurance HTML File
+        &lt;/a&gt;
+        &lt;a href=&#34;1000019630.jpg&#34; class=&#34;download-link&#34; download&gt;
+            Download JGInsurance Banner Image
+        &lt;/a&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC00JHIgAoM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> Index.html</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Nov 12,
+										2025 @ 17:43:36 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Nov 12, 2025 @ 17:44:26 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC00JHIgAoM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iMP-0wgM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iMP-0wgM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iMP-0wgM">Logos With Links</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iMP-0wgM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iMP-0wgM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iMP-0wgM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iMP-0wgM"
+								value="Logos With Links" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iMP-0wgM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iMP-0wgM"
+								class="search-element">https://www.dropbox.com/scl/fi/ycqtb3l35e1q11u0l1cx3/JGInsurance_Banner_Optimized-1.html?rlkey=zuk4d7mrlgit99mzt39xxg1fk&amp;st=bsev98ly&amp;dl=0          THIS WORKS!!!
+
+https://tinyurl.com/j3253yjp THIS WORKS!!!
+
+https://www.dropbox.com/scl/fi/ycqtb3l35e1q11u0l1cx3/JGInsurance_Banner_Optimized-1.html?rlkey=zuk4d7mrlgit99mzt39xxg1fk&amp;st=21p1e17e&amp;dl=0  DUPLICATE FROM TOP
+
+content://media/external/downloads/1000019629
+
+content://media/external/downloads/1000019629
+</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iMP-0wgM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> Logos With Links</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Nov 12,
+										2025 @ 05:03:39 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Nov 12, 2025 @ 15:53:51 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iMP-0wgM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iK-L4QsM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iK-L4QsM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iK-L4QsM"></a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iK-L4QsM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iK-L4QsM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iK-L4QsM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iK-L4QsM"
+								value="" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iK-L4QsM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iK-L4QsM"
+								class="search-element">
+</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iK-L4QsM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> </p>
+									<p><span style="font-weight: bold">View-mode:</span> 3</p>
+									<p><span style="font-weight: bold">Created:</span> Nov 09,
+										2025 @ 23:19:31 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Nov 09, 2025 @ 23:19:43 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iK-L4QsM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUn46G-QoM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUn46G-QoM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUn46G-QoM">My Personal Health Website/Portal</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUn46G-QoM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUn46G-QoM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUn46G-QoM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUn46G-QoM"
+								value="My Personal Health Website/Portal" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUn46G-QoM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUn46G-QoM"
+								class="search-element">https://www.planenroll.com/?purl=Jay-Gil
+</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUn46G-QoM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> My Personal Health Website/Portal</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Aug 27,
+										2025 @ 13:07:58 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Nov 08, 2025 @ 22:41:18 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUn46G-QoM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kKjOuwsM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kKjOuwsM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kKjOuwsM">Instagram Account</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kKjOuwsM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kKjOuwsM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kKjOuwsM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kKjOuwsM"
+								value="Instagram Account" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kKjOuwsM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kKjOuwsM"
+								class="search-element">https://instagram.com/jginsuranceagent</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kKjOuwsM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> Instagram Account</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Oct 07,
+										2025 @ 19:06:32 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Nov 08, 2025 @ 18:33:05 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kKjOuwsM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv9XerggM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv9XerggM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv9XerggM">Job Search</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv9XerggM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv9XerggM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv9XerggM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv9XerggM"
+								value="Job Search" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv9XerggM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv9XerggM"
+								class="search-element">Skill Set:  Accurate typing, proficient with spreadsheets, high level attention to detail, excellent organizational and time management abilities, error identification skills, confidentiality and respect for privacy regarding sensitive data, ability to work independently with minimal supervision, familiar with proper administrative and clerical tasks, excellent written and communication skills, excellent problem solver of basic software or data inconsistencies </textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv9XerggM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> Job Search</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Nov 07,
+										2025 @ 21:28:41 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Nov 07, 2025 @ 21:28:41 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv9XerggM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sOijzwsM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sOijzwsM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sOijzwsM">Estate</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sOijzwsM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sOijzwsM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sOijzwsM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sOijzwsM"
+								value="Estate" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sOijzwsM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sOijzwsM"
+								class="search-element">ebbie,
+
+You still have not followed up with me, you haven&#39;t followed through on what you told me about settling the estate end of October or the latest first week of November if the IRS didn&#39;t get back to you and I am growing more desperate with each passing day.
+
+I contacted Patty and she said she hasn&#39;t heard from you either.
+
+The economy looks like it soon could have a market crash, end this right now!!!
+
+Debbie, I have my life and Mary&#39;s life on the line and this is becoming dangerous for Mary and I.
+
+What in earth are you doing, I am really getting worried about your mental state of mind and maybe you don&#39;t realize the desparation I am in.
+
+I know Dad did not put in the will, that we had to suffer and endure years of excruciating stress.
+
+I supported your for 3 1/2 years, but now I feel like you are holding me hostage to your insanity.
+
+Get back to me, tell me you paid the fines and pay me my inheritance and my monies I entrusted to Mom and Dad between 1978-1982 Dad set aside for my retirement.
+
+Jay</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sOijzwsM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> Estate</p>
+									<p><span style="font-weight: bold">View-mode:</span> 3</p>
+									<p><span style="font-weight: bold">Created:</span> Nov 07,
+										2025 @ 08:09:51 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Nov 07, 2025 @ 08:10:12 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sOijzwsM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sPmTtQkM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sPmTtQkM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sPmTtQkM">GoogleBizProfile Review Link</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sPmTtQkM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sPmTtQkM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sPmTtQkM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sPmTtQkM"
+								value="GoogleBizProfile Review Link" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sPmTtQkM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sPmTtQkM"
+								class="search-element">https://g.page/r/CSazSXXwkzmIEAE/review</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sPmTtQkM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> GoogleBizProfile Review Link</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Nov 03,
+										2025 @ 22:29:33 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Nov 03, 2025 @ 22:29:33 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sPmTtQkM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iPyk9QgM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iPyk9QgM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iPyk9QgM">Auto Reply for Email,Test, Phone Calls</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iPyk9QgM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iPyk9QgM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iPyk9QgM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iPyk9QgM"
+								value="Auto Reply for Email,Test, Phone Calls" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iPyk9QgM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iPyk9QgM"
+								class="search-element">JGInsurance of Travelers Rest, SC Messaged Received; Personal Protection Plans, Quotes and Rates: 
+
+Health Quote: www.planenroll.com/?purl=Jay-Gil  
+
+Property &amp; Casualty Quote: www.tinyurl.com/5h9psppe
+
+Google Business Profile: www.tinyurl.com/GoogleBusinesssProfile</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iPyk9QgM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> Auto Reply for Email,Test, Phone Calls</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Nov 01,
+										2025 @ 15:40:45 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Nov 01, 2025 @ 15:40:45 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0iPyk9QgM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU_8iDywkM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU_8iDywkM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU_8iDywkM">Lemi - Auto Reponder Reply</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU_8iDywkM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU_8iDywkM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU_8iDywkM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU_8iDywkM"
+								value="Lemi - Auto Reponder Reply" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU_8iDywkM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU_8iDywkM"
+								class="search-element">Temporary Password: #o^viV2W1@%7Ff#t0rvzlSpB</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU_8iDywkM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> Lemi - Auto Reponder Reply</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Oct 31,
+										2025 @ 17:46:01 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Oct 31, 2025 @ 17:46:01 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU_8iDywkM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kNuvpgoM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kNuvpgoM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kNuvpgoM">The #1 Marketing Doc.</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kNuvpgoM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kNuvpgoM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kNuvpgoM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kNuvpgoM"
+								value="The #1 Marketing Doc." class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kNuvpgoM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kNuvpgoM"
+								class="search-element">
+
+
+https://drive.google.com/file/d/1A5HzjTLb5cyBKdghCr725PD4r3nMk-D-/view?usp=drivesdk
+
+
+JGInsurance Travelers Rest, SC - Quotes, Plans and Rates: https://tinyurl.com/4jnshbh9
+
+
+JGInsurance Travelers Rest, SC - Quotes, Plans and Rates: www.tinyurl.com/4jnshbh9
+</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kNuvpgoM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> The #1 Marketing Doc.</p>
+									<p><span style="font-weight: bold">View-mode:</span> 3</p>
+									<p><span style="font-weight: bold">Created:</span> Oct 26,
+										2025 @ 19:49:07 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Oct 30, 2025 @ 07:34:11 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kNuvpgoM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC04NWXvQkM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC04NWXvQkM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC04NWXvQkM">Google Biz Profile</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC04NWXvQkM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC04NWXvQkM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC04NWXvQkM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC04NWXvQkM"
+								value="Google Biz Profile" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC04NWXvQkM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC04NWXvQkM"
+								class="search-element">https://tinyurl.com/4jnshbh9
+
+www.tinyurl.com/GoogleBizProfileJGInsurance
+https://tinyurl.com/GoogleBusinesssProfile
+www.tinyurl.com/GoogleBusinesssProfile
+</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC04NWXvQkM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> Google Biz Profile</p>
+									<p><span style="font-weight: bold">View-mode:</span> 1</p>
+									<p><span style="font-weight: bold">Created:</span> Oct 19,
+										2025 @ 01:15:07 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Oct 29, 2025 @ 17:32:50 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC04NWXvQkM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC00MjIkgoM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC00MjIkgoM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC00MjIkgoM">Marketing</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC00MjIkgoM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC00MjIkgoM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC00MjIkgoM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC00MjIkgoM"
+								value="Marketing" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC00MjIkgoM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC00MjIkgoM"
+								class="search-element">Names, Addresses, Emails, Websites, Phone Numbers for each Chamber of commerce, Real Estate company, medical facility, law practice, automotive repair shop, car dealership, small business, restaurant, retirement community, bank institution, financial institution, financial advisor, title company and construction company in the town of Belleview Florida.  Separate each industry by category, number each company individually and fully expand contact list pasted here for manual download
+
+Yes the full .csv file with more categories (such as law practices, title companies, medical facilities, construction, banks, financial advisors, etc.) and expanded listings delivered to my email address at mr.jaygil@gmail.com
+
+I want the full expanded contact list pasted here for manual download
+
+step-by-step instructions for making it a .csv file on your device
+
+Start again at: letter C and finish at Pine Hill, FL
+
+
+
+
+
+</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC00MjIkgoM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> Marketing</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Oct 22,
+										2025 @ 00:49:48 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Oct 27, 2025 @ 21:34:32 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC00MjIkgoM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sOan6goM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sOan6goM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sOan6goM">New Profile Large/New Profile Small</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sOan6goM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sOan6goM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sOan6goM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sOan6goM"
+								value="New Profile Large/New Profile Small" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sOan6goM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sOan6goM"
+								class="search-element">I am an all-lines insurance agent in South Carolina and Florida; contracted with Prudential, Mutual of Omaha, Cigna, Blue Cross/Blue Shield of SC, Aetna, United Healthcare, Humana, Devoted,  Centene/Wellcare, Elevance Health, Florida Blue for Health Insurance and contracted with over 140 Insurance carriers on the Property and Casualty Side. I aim to give my clients the best coverage for your specific needs, at the best available rates on the market.  We can quickly give you a comparison rate, selecting the right coverage for you, your family, your business or your employees.
+
+I am an all-lines insurance agent in SC &amp; FL contracted with Prudential, Mutual of Omaha, Cigna, BCBSSC, Aetna, UHC, Humana, Devoted,  Centene, Elevance Health, Fla Blue for Health and over 140 carriers on the P &amp; C side</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sOan6goM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> New Profile Large/New Profile Small</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Oct 25,
+										2025 @ 16:40:35 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Oct 25, 2025 @ 17:17:53 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sOan6goM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kPOczAkM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kPOczAkM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kPOczAkM">VistaPrint for Car</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kPOczAkM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kPOczAkM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kPOczAkM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kPOczAkM"
+								value="VistaPrint for Car" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kPOczAkM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kPOczAkM"
+								class="search-element">https://www.vistaprint.com/signs-posters/car-window-decals
+
+Check this code to see if the decals are legal in South Carolina: Check South Carolina Law (SC Code § 56-5-5000) and Perforated Decals</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kPOczAkM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> VistaPrint for Car</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Oct 24,
+										2025 @ 23:36:28 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Oct 24, 2025 @ 23:50:15 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0kPOczAkM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sPrrkQkM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sPrrkQkM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sPrrkQkM">Privacy Policy URL</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sPrrkQkM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sPrrkQkM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sPrrkQkM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sPrrkQkM"
+								value="Privacy Policy URL" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sPrrkQkM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sPrrkQkM"
+								class="search-element">https://drive.google.com/file/d/1oTKQAjUF_q3rfUN5UZVmtJ7-ngT0FQxV/view?usp=sharing
+
+https://tinyurl.com/3tnymdj6</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sPrrkQkM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> Privacy Policy URL</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Oct 20,
+										2025 @ 18:22:39 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Oct 20, 2025 @ 18:22:39 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0sPrrkQkM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU39H2lwgM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU39H2lwgM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU39H2lwgM">About Me</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU39H2lwgM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU39H2lwgM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU39H2lwgM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU39H2lwgM"
+								value="About Me" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU39H2lwgM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU39H2lwgM"
+								class="search-element">I am an all-lines insurance agent writing Personal, Business and Commercial Plans that include Life, Accident, Health, Property, Casualty, Surety, Marine, Flood, General Liability, Professional Liability, Excess and Surplus, Errors &amp; Omission, Pet insurance, Renters insurance, Landlord insurance, Truckers insurance, Cyber Security, Business Owners insurance and many other type of policies in the States of South Carolina &amp; Florida.  I currently have five years&#39; experience in each of the Insurance &amp; Health industries and continue to currently work in both fields. 
+
+Schedule an appt: www.calendar.app.google/NaGaCztwrkYoByuH8 
+
+Health quote: www.planenroll.com/?purl=Jay-Gil
+
+Property &amp; Casualty: quote: www.tinyurl.com/propertyandcasualtyquote
+
+Google Business Profile: www.tinyurl.com/GoogleBizProfileJGInsurance
+
+Facebook Page: www.facebook.com/profile.php?id=61579961822100
+
+LinkedIn: www.linkedin.com/in/jginsurance/
+
+TikTok: https://www.tiktok.com/@jginsurance?_t=ZT-90fG2fQfn31&amp;_r=1
+
+Instagram: www.instagram.com/jginsuranceagent</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU39H2lwgM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> About Me</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Aug 22,
+										2025 @ 11:46:40 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Oct 18, 2025 @ 23:58:03 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU39H2lwgM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC04J6a7AkM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC04J6a7AkM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC04J6a7AkM">TikTok Ext. Message Link</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC04J6a7AkM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC04J6a7AkM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC04J6a7AkM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC04J6a7AkM"
+								value="TikTok Ext. Message Link" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC04J6a7AkM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC04J6a7AkM"
+								class="search-element">https://tiktok.me/jginsurance
+
+https://www.tiktok.com/@jginsurance?_t=ZT-90fG2fQfn31&amp;_r=1</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC04J6a7AkM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> TikTok Ext. Message Link</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Sep 26,
+										2025 @ 16:55:05 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Oct 18, 2025 @ 23:16:00 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC04J6a7AkM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gNuu5ggM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gNuu5ggM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gNuu5ggM">P &amp; C Lead Connector Links</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gNuu5ggM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gNuu5ggM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gNuu5ggM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gNuu5ggM"
+								value="P &amp; C Lead Connector Links" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gNuu5ggM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gNuu5ggM"
+								class="search-element">https://portal.firstconnectinsurance.com/contact-form/c7e31f4c-3c1e-4728-ab1d-a0caae407c7b
+
+Shortened and Customized:
+
+https://tinyurl.com/propertyandcasualtyquote
+
+Especially for the Google Business Profile About: www.tinyurl.com/5h9psppe</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gNuu5ggM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> P &amp; C Lead Connector Links</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Sep 09,
+										2025 @ 16:18:12 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Oct 18, 2025 @ 18:34:26 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gNuu5ggM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0oIKa9gsM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0oIKa9gsM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0oIKa9gsM">NH Videos</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0oIKa9gsM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0oIKa9gsM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0oIKa9gsM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0oIKa9gsM"
+								value="NH Videos" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0oIKa9gsM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0oIKa9gsM"
+								class="search-element">
+We have hundreds of videos on our YouTube channel:
+
+https://www.youtube.com/@NewHorizonsFMO/videos
+
+
+What I Wish I Knew Before Getting Into Medicare Sales
+
+</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0oIKa9gsM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> NH Videos</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Oct 16,
+										2025 @ 20:57:29 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Oct 16, 2025 @ 20:58:02 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0oIKa9gsM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0oMDG-wgM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0oMDG-wgM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0oMDG-wgM">Mrktng URL&#39;s</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0oMDG-wgM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0oMDG-wgM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0oMDG-wgM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0oMDG-wgM"
+								value="Mrktng URL&#39;s" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0oMDG-wgM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0oMDG-wgM"
+								class="search-element">https://shorturl.at/1XU8h</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0oMDG-wgM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> Mrktng URL&#39;s</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Oct 16,
+										2025 @ 11:20:54 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Oct 16, 2025 @ 14:33:51 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0oMDG-wgM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ7_8AkM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ7_8AkM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ7_8AkM">Vacation Responder</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ7_8AkM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ7_8AkM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ7_8AkM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ7_8AkM"
+								value="Vacation Responder" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ7_8AkM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ7_8AkM"
+								class="search-element">Hello,
+
+
+Thank you for your message will get back to you at our earliest convenience.
+
+Set Appt. www.tinyurl.com/8v4yv8zd
+
+P &amp; C Quote: www.tinyurl.com/propertyandcasualtyquote
+
+Health Quote: www.planenroll.com/?purl=Jay-Gil
+
+
+Regards,
+Jay Gil (NPN 438874)
+Independent Ins. Agent SC &amp; FL
+
+
+</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ7_8AkM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> Vacation Responder</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Oct 11,
+										2025 @ 02:38:20 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Oct 11, 2025 @ 02:39:04 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ7_8AkM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ7JrwgM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ7JrwgM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ7JrwgM">Veronica Edward&#39;s State Farm</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ7JrwgM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ7JrwgM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ7JrwgM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ7JrwgM"
+								value="Veronica Edward&#39;s State Farm" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ7JrwgM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ7JrwgM"
+								class="search-element"></textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ7JrwgM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> Veronica Edward&#39;s State Farm</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Oct 08,
+										2025 @ 01:22:28 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Oct 08, 2025 @ 01:22:56 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ7JrwgM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU75HnnQkM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU75HnnQkM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU75HnnQkM">Unsubscribe Link</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU75HnnQkM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU75HnnQkM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU75HnnQkM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU75HnnQkM"
+								value="Unsubscribe Link" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU75HnnQkM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU75HnnQkM"
+								class="search-element">https://sites.google.com/view/jginsurance/home
+
+https://tinyurl.com/jginsuranceunsubscribe
+
+
+
+
+</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU75HnnQkM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> Unsubscribe Link</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Aug 20,
+										2025 @ 03:48:26 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Oct 07, 2025 @ 16:31:18 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU75HnnQkM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJDilQsM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJDilQsM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJDilQsM">Facebook Page URL</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJDilQsM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJDilQsM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJDilQsM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJDilQsM"
+								value="Facebook Page URL" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJDilQsM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJDilQsM"
+								class="search-element">https://www.facebook.com/profile.php?id=61579961822100</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJDilQsM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> Facebook Page URL</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Oct 03,
+										2025 @ 22:17:09 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Oct 03, 2025 @ 22:17:09 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJDilQsM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU_5asvAkM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU_5asvAkM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU_5asvAkM">About Me 180 Text Limit</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU_5asvAkM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU_5asvAkM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU_5asvAkM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU_5asvAkM"
+								value="About Me 180 Text Limit" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU_5asvAkM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU_5asvAkM"
+								class="search-element">Appt: www.calendar.app.google/NaGaCztwrkYoByuH8 - Health quote: www.planenroll.com/?purl=Jay-Gil - P &amp; C and Flood quote: www.tinyurl.com/propertyandcasualtyquote</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU_5asvAkM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> About Me 180 Text Limit</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Sep 26,
+										2025 @ 07:57:35 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Sep 26, 2025 @ 08:00:15 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU_5asvAkM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ-ngQkM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ-ngQkM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ-ngQkM">BCBSSC Login Link for Certification</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ-ngQkM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ-ngQkM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ-ngQkM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ-ngQkM"
+								value="BCBSSC Login Link for Certification" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ-ngQkM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ-ngQkM"
+								class="search-element">Login Name: mr.jaygil@gmail.com
+Temporary Password: BCBSSC#160118
+
+Step 1) Login
+
+You will be required to change your password when you first login. You may use the &#34;Forgot Password&#34; link on the login page If your temporary password has expired.
+
+Step 2) Complete the onboarding application.
+
+Step 3) Our team will review your application and notify you when it has been approved, declined, or if we need additional information to complete the process.
+
+If the direct case link does not work please try this general Workflow link:
+Workflow Link
+
+If you have any questions, please contact agent.appointment@bcbssc.com.
+
+BlueCross BlueShield of South Carolina</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ-ngQkM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> BCBSSC Login Link for Certification</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Sep 22,
+										2025 @ 15:16:56 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Sep 22, 2025 @ 15:16:56 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gJ-ngQkM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUn9XUoAkM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUn9XUoAkM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUn9XUoAkM">Calendar Link</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUn9XUoAkM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUn9XUoAkM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUn9XUoAkM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUn9XUoAkM"
+								value="Calendar Link" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUn9XUoAkM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUn9XUoAkM"
+								class="search-element">Please feel free to schedule an appointment by clicking this link: https://calendar.app.google/NaGaCztwrkYoByuH8
+
+Shortened: https://tinyurl.com/8v4yv8zd</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUn9XUoAkM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> Calendar Link</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Aug 23,
+										2025 @ 14:57:10 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Sep 13, 2025 @ 18:24:03 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUn9XUoAkM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gLnElgkM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gLnElgkM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gLnElgkM">Permission to Contact: L, A, H, P &amp; C</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gLnElgkM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gLnElgkM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gLnElgkM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gLnElgkM"
+								value="Permission to Contact: L, A, H, P &amp; C" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gLnElgkM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gLnElgkM"
+								class="search-element">One on top has reply to (305) 790-4210 and Mr.JayGil@gmail.com
+
+https://drive.google.com/file/d/1amlbqzQ94jUk7s-njcG-B0h9XZtuNJtN/view?usp=drive_link
+
+Below does not have reply to (305) 790-4210 and Mr.JayGil@gmail.com
+
+https://drive.google.com/file/d/187j8oRzxaWx_xkY6IbFsLAqHxluhPBJ2/view?usp=drive_link</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gLnElgkM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> Permission to Contact: L, A, H, P &amp; C</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Sep 07,
+										2025 @ 07:36:29 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Sep 12, 2025 @ 15:12:58 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIC0gLnElgkM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU__2osAkM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU__2osAkM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU__2osAkM">Permission to Contact Life Link Personalized</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU__2osAkM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU__2osAkM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU__2osAkM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU__2osAkM"
+								value="Permission to Contact Life Link Personalized" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU__2osAkM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU__2osAkM"
+								class="search-element">file:///C:/Users/Whats/OneDrive/Life%20Ins/(PTC)%20Permission%20to%20Contact%20Form%20Personalized%20Copy%20Link.pdf</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU__2osAkM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> Permission to Contact Life Link Personalized</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Sep 06,
+										2025 @ 19:59:10 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Sep 06, 2025 @ 19:59:10 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU__2osAkM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv5bLrwgM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv5bLrwgM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv5bLrwgM">Generic Life Permission to Contact Form</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv5bLrwgM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv5bLrwgM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv5bLrwgM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv5bLrwgM"
+								value="Generic Life Permission to Contact Form" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv5bLrwgM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv5bLrwgM"
+								class="search-element">file:///C:/Users/Whats/OneDrive/Life%20Ins/(PTC)%20Permission%20to%20Contact%20Form.pdf</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv5bLrwgM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> Generic Life Permission to Contact Form</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Sep 06,
+										2025 @ 19:46:05 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Sep 06, 2025 @ 19:46:05 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv5bLrwgM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv5Pn2goM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv5Pn2goM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv5Pn2goM">Share P &amp; C Lead Form</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv5Pn2goM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv5Pn2goM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv5Pn2goM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv5Pn2goM"
+								value="Share P &amp; C Lead Form" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv5Pn2goM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv5Pn2goM"
+								class="search-element">https://portal.firstconnectinsurance.com/post-signup/process?refer=FC53791</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv5Pn2goM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> Share P &amp; C Lead Form</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Sep 06,
+										2025 @ 18:57:11 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Sep 06, 2025 @ 18:57:11 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDUv5Pn2goM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU34LZqgoM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU34LZqgoM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU34LZqgoM">Agency Referral Link for P &amp; C ($50)</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU34LZqgoM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU34LZqgoM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU34LZqgoM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU34LZqgoM"
+								value="Agency Referral Link for P &amp; C ($50)" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU34LZqgoM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU34LZqgoM"
+								class="search-element">https://portal.firstconnectinsurance.com/post-signup/process?refer=FC53791</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU34LZqgoM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> Agency Referral Link for P &amp; C ($50)</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Sep 06,
+										2025 @ 18:49:22 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Sep 06, 2025 @ 18:49:22 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU34LZqgoM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+						<li id="li-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU35OOvwkM">
+							<a class="Swansea" href="#" onmouseover="showNoteLinks('ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU35OOvwkM')"
+								onclick="showNote(this)" id="ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU35OOvwkM">LinkedIn</a>
+							<span id="note-links-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU35OOvwkM" class="note-links" style="display: none">
+								<a href="#" class="note-properties-link actions"
+									onclick="jQuery.facebox({ div: '#note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU35OOvwkM' });"></a>
+							</span>
+							<input name="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU35OOvwkM" id="title-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU35OOvwkM"
+								value="LinkedIn" class="search-element">
+							<textarea name="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU35OOvwkM" id="body-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU35OOvwkM"
+								class="search-element">https://www.linkedin.com/in/jginsurance/</textarea>
+							<div style="display:none">
+								<div id="note-properties-ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU35OOvwkM">
+									<div style="font-size: 16pt">Properties</div>
+									<br>
+									<p>
+									<p><span style="font-weight: bold">Title:</span> LinkedIn</p>
+									<p><span style="font-weight: bold">View-mode:</span> 0</p>
+									<p><span style="font-weight: bold">Created:</span> Aug 30,
+										2025 @ 00:19:31 GMT</p>
+									<p><span style="font-weight: bold">Last modified:</span> Aug 30, 2025 @ 00:19:31 GMT</p>
+									<a target="_blank" href="/notes/print?key=ag1pbmtwYWRub3RlcGFkcisLEgtVc2VyUHJvZmlsZSIJTXIuSmF5R2lsDAsSBE5vdGUYgIDU35OOvwkM">View printer
+										friendly version this note</a>
+									</p>
+								</div>
+							</div>
+						</li>
+						
+					</ul>
+				</div>
+			</div>
+			<div id="menu-bottom"></div>
+		</div>
+	</div>
+	<div class="yui3-u" id="main">
+		<div id="notepad">
+			<div id="top">
+				<input type="text" name="title" id="title" autocomplete="off" onkeyup="noteChanged()"
+					onfocus="$(this).css('backgroundPosition', '0 -29px')"
+					onblur="$(this).css('backgroundPosition', '0 0')" />
+				<span id="saveStatus" title="Title">Saving...</span>
+				<input type="hidden" name="current-note" id="current-note" value="new" />
+				<div id="note-buttons">
+					<a href="#" title="Save" onclick="saveNote()" id="save-note" class="button control-buttons">Save</a>
+					<a href="#" title="New note" onclick="newNote()" id="new-note"
+						class="button control-buttons">New</a>
+					<a href="#" title="Delete this note" onclick="deleteNote()" id="delete-note"
+						class="button control-buttons">Delete</a>
+				</div>
+				<div id="note-link-area">
+					<a href="#" title="View note history" onclick="viewVersionHistory()" id="view-note-history">
+						View note history
+					</a>
+				</div>
+			</div>
+			<div id="body_wrapper">
+				<div id="body_container">
+					<textarea id="body" onkeyup="noteChanged()"></textarea>
+				</div>
+			</div>
+			<div id="bottom"></div>
+		</div>
+	</div>
+</div>
+
+<div id="view-history-not-premium-message">
+	<div id="view-history-not-premium">
+		<div id="view-history-not-premium-header">
+			Upgrade to Premium?
+		</div>
+		<div id="view-history-not-premium-text">
+			Inkpad keeps a copy of the last 10 changes that were saved. Premium users can view and restore previous
+			versions of a note.
+		</div>
+		<div id="view-history-not-premium-buttons">
+			<span id="history-upgrade-button" class="history-popup-button">Upgrade to Inkpad Premium</span>
+			<span id="history-cancel-button" class="history-popup-button">No thanks</span>
+		</div>
+	</div>
+</div>
+
+	</div>
+</body>
+
+</html>
